@@ -1,0 +1,39 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib import style
+style.use("fivethirtyeight")
+xyz_web={'Days':[1,2,3,4,5,6],'Visitors':[123,535,35,77,135,66],'Bounce_rate':[4,48,6,2,6,6]}
+p=pd.DataFrame(xyz_web)
+print(p.head(3))
+print(p.tail(3))
+df1=pd.DataFrame({'HP1':[10,12,13,15],'rate':[5,6,4,8],'ind_rate':['a','b','c','d']},index=[2001,2002,2003,2004])
+df2=pd.DataFrame({'HP1':[10,12,13,15],'rate':[5,6,4,8],'ind_rate':['a','b','c','d']},index=[2005,2006,2007,2004])
+merged=pd.merge(df1,df2, on='HP1')
+print(merged)
+df3=pd.DataFrame({'HP1':[10,12,13,15],'ind_rate':['a','b','c','d']},index=[2001,2002,2003,2004])
+df4=pd.DataFrame({'HP2':[11,15,17,16],'rate':[5,6,4,8]},index=[2005,2003,2004,2004])
+joined=df3.join(df4)
+print(joined)
+df=pd.DataFrame({'Day':[1,2,3,4],'Visitor':[23,45,67,43],'onreach':[34,56,67,89]})
+df.set_index('Day',inplace=True)
+
+df.plot()
+plt.show()
+df5=df.rename(columns={'Visitor':'Visitors'})
+print(df5)
+
+df6=pd.DataFrame({'HP1':[10,12,13,15],'rate':[5,6,4,8],'ind_rate':['a','b','c','d']},index=[2001,2002,2003,2004])
+df7=pd.DataFrame({'HP1':[10,12,13,15],'rate':[5,6,4,8],'ind_rate':['a','b','c','d']},index=[2005,2006,2007,2008])
+concat=pd.concat([df6,df7])
+print(concat)
+country=pd.read_csv('C:\\Users\\HP\\Desktop\\API_ILO_country_YU.csv',index_col=0)
+df8=country.head(5)
+df8.set_index(['Country Code'],inplace=True)
+sd=df8.reindex(columns=['2010','2011'])
+db=sd.diff(axis=1)
+db.plot(kind='bar')
+plt.show()
+
+df9=pd.read_csv('C:\\Users\\HP\\Desktop\\API_ILO_country_YU.csv',index_col=0)
+df9.to_html('edu.html')
+
