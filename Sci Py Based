@@ -1,4 +1,4 @@
-from scipy import special
+from scipy import special            //yeh konsa code hai
 a=special.exp10(2)
 print(a)
 print(special.cosdg(270))
