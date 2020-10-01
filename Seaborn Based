@@ -1,0 +1,64 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+ #   sns.jointplot(x=x1,y=y1,kind='kde',color='b');
+#x1=pd.DataFrame({'Day':[1,2,3,4,5,6,7],'Grocery':[30,80,45,23,51,46,76],'Clothes':[13,40,34,23,54,67,98],'Utensils':[12,32,27,56,87,54,34]},index=[1,2,3,4,5,6,7])
+#y1=pd.DataFrame({'Day':[8,9,10,11,12,13,14],'Grocery':[30,80,45,23,51,46,76],'Clothes':[13,40,34,23,54,67,98],'Utensils':[12,32,27,56,87,54,34]},index=[8,9,10,11,12,13,14])
+#mean, cov = [0, 1], [(1, .5), (.5, 1)]
+#data = np.random.multivariate_normal(mean, cov, 200)
+#with sns.axes_style("white"):
+ #         sns.jointplot(x=x1, y=y1, kind="kde", color="b");
+#plt.show()
+c2=sns.color_palette()
+sns.palplot(c2)
+plt.show()
+sns.set(style="white",color_codes=True)
+a4=sns.load_dataset("tips")
+sns.boxplot(x='time',y='tip',data=a4)
+sns.despine(offset=10,trim=True)
+plt.show()
+
+sns.set(style='dark')
+a2=sns.load_dataset("flights")
+b2=sns.PairGrid(a2)
+b2.map(plt.scatter)
+plt.show()
+sns.set(style='darkgrid')
+a2=sns.load_dataset("flights")
+b2=sns.PairGrid(a2)
+b2.map(plt.scatter)
+plt.show()
+a1=sns.load_dataset("iris")
+b1=sns.FacetGrid(a1,col="species")
+b1.map(plt.hist,"sepal_length")
+plt.show()
+a2=sns.load_dataset("flights")
+b2=sns.PairGrid(a2)
+b2.map(plt.scatter)
+plt.show()
+
+import pandas as pd
+from scipy import stats
+
+
+c=np.random.normal(loc=5,size=10,scale=3)
+sns.displot(c)
+plt.show()
+b=sns.load_dataset("tips")
+sns.catplot(x='time',y='tip',data=b)
+sns.catplot(x='time',y='tip',kind='violin',data=b)
+sns.catplot(x='time',y='tip',kind='boxen',data=b)
+plt.show()
+
+
+sns.relplot(x='time',y='tip',data=b,kind='line')
+plt.show()
+
+a = sns.load_dataset("flights")
+sns.relplot(x="passengers",y="month",hue='year',data = a)
+plt.show()
+
+
+
